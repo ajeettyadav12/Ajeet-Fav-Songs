@@ -1,0 +1,232 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ajeet's Favorite Songs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Top Bar -->
+  <header class="top-bar">
+
+    <button id="adminBtn" class="admin-btn">
+      🔐 Admin Login
+    </button>
+
+    <button id="logoutBtn" class="logout-btn hidden">
+      Logout
+    </button>
+
+  </header>
+
+
+  <!-- Admin Login Modal -->
+  <div id="adminModal" class="modal hidden">
+
+    <div class="modal-box">
+
+      <button id="closeModal" class="close-btn">
+        &times;
+      </button>
+
+      <h2>Admin Login</h2>
+
+      <p class="modal-subtitle">
+        Login to manage your songs.
+      </p>
+
+      <form id="adminForm">
+
+        <label for="adminUsername">
+          Username
+        </label>
+
+        <input
+          type="text"
+          id="adminUsername"
+          placeholder="Enter username"
+          autocomplete="username"
+          required
+        >
+
+        <label for="adminPassword">
+          Password
+        </label>
+
+        <input
+          type="password"
+          id="adminPassword"
+          placeholder="Enter password"
+          autocomplete="current-password"
+          required
+        >
+
+        <button type="submit" class="login-submit">
+          Login
+        </button>
+
+        <p id="loginError" class="login-error"></p>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- Main Player -->
+  <main class="player">
+
+    <!-- Now Playing -->
+    <section class="now">
+
+      <div class="art" id="art"></div>
+
+      <h1 id="title">Loading...</h1>
+
+      <p id="artist"></p>
+
+      <p id="movie" class="muted"></p>
+
+      <p id="status" class="status"></p>
+
+
+      <!-- Progress -->
+      <div class="progress-row">
+
+        <span id="current">0:00</span>
+
+        <input
+          type="range"
+          id="progress"
+          min="0"
+          max="100"
+          value="0"
+          step="0.1"
+        >
+
+        <span id="duration">0:00</span>
+
+      </div>
+
+
+      <!-- Player Controls -->
+      <div class="controls">
+
+        <button id="prev">
+          ⏮
+        </button>
+
+        <button id="play" class="play">
+          ▶
+        </button>
+
+        <button id="next">
+          ⏭
+        </button>
+
+      </div>
+
+
+      <!-- Extra Controls -->
+      <div class="extras">
+
+        <button id="mute">
+          🔊
+        </button>
+
+        <input
+          type="range"
+          id="volume"
+          min="0"
+          max="1"
+          step="0.01"
+          value="0.8"
+        >
+
+        <label class="auto">
+          <input
+            type="checkbox"
+            id="autoplay"
+            checked
+          >
+          Autoplay next
+        </label>
+
+      </div>
+
+
+      <!-- ADMIN ONLY -->
+      <div id="adminUpload" class="admin-upload hidden">
+
+        <div class="admin-panel-title">
+          🛠 Admin Controls
+        </div>
+
+        <label class="upload">
+          + Add songs from my device
+
+          <input
+            type="file"
+            id="files"
+            accept="audio/*"
+            multiple
+            class="sr"
+          >
+        </label>
+
+        <p class="admin-note">
+          Admin mode: Add or delete songs from the playlist.
+        </p>
+
+      </div>
+
+
+      <p class="muted note">
+        Bollywood clips are 30-second previews, courtesy of Apple.
+      </p>
+
+    </section>
+
+
+    <!-- Playlist -->
+    <section class="playlist">
+
+      <div class="playlist-heading">
+
+        <h2>Playlist</h2>
+
+        <span id="adminStatus" class="admin-status hidden">
+          ADMIN
+        </span>
+
+      </div>
+
+      <ol id="list"></ol>
+
+    </section>
+
+  </main>
+
+
+  <!-- Audio -->
+  <audio id="audio" preload="metadata"></audio>
+
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      © 2026 Ajeet Yadav. All Rights Reserved.
+    </p>
+  </footer>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+```
